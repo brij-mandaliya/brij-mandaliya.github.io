@@ -21,7 +21,6 @@
 ## <img src="https://raw.githubusercontent.com/Trilokia/Trilokia/379bab808041cfce929ecfe91713f90033dfcea7c/bottom.svg" width="30" /> About Me
 
 - 🔭 I’m currently working as a **Full-Stack Developer** at **Improwised Technologies Pvt. Ltd.**
-- 🌱 I’m currently learning **Advanced AWS, Docker & Cloud Architecture**
 - 💬 Ask me about **Laravel, Vue.js, Nuxt.js, Python & Automation**
 - ⚡ Fun fact: I built an **Ultimate 9x9 TicTacToe** game from scratch!
 
