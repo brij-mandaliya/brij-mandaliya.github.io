@@ -95,11 +95,10 @@ const Projects = () => {
                 {/* Links */}
                 {project.githubLink !== "#" && (
                   <div className="flex gap-3 pt-4">
-                    <Button variant="outline" size="sm" className="flex-1">
+                    <a href={project.githubLink} variant="outline" size="sm" className="flex-1">
                       <Github className="mr-2 h-4 w-4" />
                       Code
-                    </Button>
-
+                    </a>
                     {/* <Button
                       size="sm"
                       className="flex-1 bg-gradient-primary hover:opacity-90"
