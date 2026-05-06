@@ -5,25 +5,32 @@ const Skills = () => {
   const skillCategories = [
     {
       title: 'Frontend Development',
-      skills: ['JavaScript', 'Vue.js', 'Nuxt.js', 'HTML', 'CSS', 'Bootstrap'],
+      skills: ['JavaScript', 'Vue.js', 'Nuxt.js', 'HTML', 'CSS', 'Bootstrap', 'SASS', 'React'],
       color: 'from-tech-purple to-primary'
     },
     {
       title: 'Backend Development', 
-      skills: ['Laravel', 'PHP', 'Python', 'Java'],
+      skills: ['Laravel', 'PHP', 'Python', 'Java', 'Node.js', 'Express.js', 'Socket.io', 'REST APIs'],
       color: 'from-tech-blue to-primary'
     },
     {
-      title: 'Automation & Tools',
-      skills: ['Zapier', 'Vibe Coding'],
-      color: 'from-primary to-tech-purple'
+      title: 'Database & Cloud', 
+      skills: ['MySQL', 'PostgreSQL', 'Firebase', 'Redis', 'AWS', 'Drizzle ORM'],
+      color: 'from-tech-purple to-primary'
+    },
+    {
+      title: 'Devops & Tools',
+      skills: ['Docker', 'Postman', 'Git / Github', 'Ngnix', 'Linux', 'Zapier', 'VS Code'],
+      color: 'from-tech-blue to-primary'
+    },
+    {
+      title: 'AI Tools',
+      skills: ['Microsoft Copilot', 'Chatgpt / Codex', 'Claude Code', 'Gemini CLI', 'Opencode', 'OpenRouter Models'],
+      color: 'from-tech-purple to-primary'
     }
   ];
 
-  const allSkills = [
-    'Laravel', 'JavaScript', 'Vue.js', 'Nuxt.js', 'Python', 
-    'Java', 'AWS', 'Zapier', 'PHP', 'HTML', 'CSS', 'Bootstrap', 'Vibe Coding'
-  ];
+  const allSkills = skillCategories.flatMap(category => category.skills);
 
   return (
     <section id="skills" className="py-20">
@@ -38,7 +45,7 @@ const Skills = () => {
         </div>
 
         {/* Skill Categories */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
           {skillCategories.map((category, index) => (
             <Card key={index} className="glass-card hover:glow-effect transition-all duration-300">
               <CardHeader>
@@ -47,8 +54,8 @@ const Skills = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                {category.skills.map((skill) => (
-                  <div key={skill} className="flex items-center space-x-2">
+                {category.skills.map((skill, skillIndex) => (
+                  <div key={`${skill}-${skillIndex}`} className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
                     <span className="text-foreground">{skill}</span>
                   </div>
