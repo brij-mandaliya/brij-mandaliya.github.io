@@ -95,10 +95,12 @@ const Projects = () => {
                 {/* Links */}
                 {project.githubLink !== "#" && (
                   <div className="flex gap-3 pt-4">
-                    <a href={project.githubLink} variant="outline" size="sm" className="flex-1">
-                      <Github className="mr-2 h-4 w-4" />
-                      Code
-                    </a>
+                    <Button asChild variant="outline" size="sm" className="flex-1">
+                      <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-2 h-4 w-4" />
+                        Code
+                      </a>
+                    </Button>
                     {/* <Button
                       size="sm"
                       className="flex-1 bg-gradient-primary hover:opacity-90"
@@ -121,12 +123,16 @@ const Projects = () => {
               I'm constantly working on new projects and improving my skills. 
               Check back regularly for updates or follow my progress on GitHub.
             </p>
-            <a href="https://github.com/brij-mandaliya?tab=repositories" target="_blank">
-            <Button className="bg-gradient-primary hover:opacity-90">
-              <Github className="mr-2 h-4 w-4" />
-              View All Repositories
+            <Button asChild className="bg-gradient-primary hover:opacity-90">
+              <a
+                href="https://github.com/brij-mandaliya?tab=repositories"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Github className="mr-2 h-4 w-4" />
+                View All Repositories
+              </a>
             </Button>
-            </a>
           </div>
         </div>
       </div>
