@@ -37,17 +37,17 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a href="https://github.com/Brij-Mandaliya" target="_blank">
-                <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-white hover:bg-primary/20 transition-all duration-200">
+                <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground hover:bg-primary/20 transition-all duration-200">
                   <Github className="h-5 w-5" />
                 </Button>
               </a>
               <a href="https://in.linkedin.com/in/brij-mandaliya-801659180" target="_blank">
-                <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-white hover:bg-primary/20 transition-all duration-200">
+                <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground hover:bg-primary/20 transition-all duration-200">
                   <Linkedin className="h-5 w-5" />
                 </Button>
               </a>
               <a href="mailto:brijsoni7@gmail.com">
-                <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-white hover:bg-primary/20 transition-all duration-200">
+                <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground hover:bg-primary/20 transition-all duration-200">
                   <Mail className="h-5 w-5" />
                 </Button>
               </a>

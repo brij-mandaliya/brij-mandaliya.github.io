@@ -1,7 +1,9 @@
 import { Code, Zap, Users, Trophy } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const About = () => {
+  const animationRef = useScrollAnimation();
   const highlights = [
     {
       icon: Code,
@@ -27,7 +29,7 @@ const About = () => {
 
   return (
     <section id="about" className="py-20 bg-gradient-secondary">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6" ref={animationRef}>
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             About <span className="gradient-text">Me</span>
@@ -42,18 +44,18 @@ const About = () => {
             <h3 className="text-2xl font-semibold gradient-text">My Journey</h3>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                I'm a dedicated Software Engineer with a passion for creating innovative solutions 
-                that make a difference. My journey started with curiosity about how things work 
+                I'm a dedicated Software Engineer with a passion for creating innovative solutions
+                that make a difference. My journey started with curiosity about how things work
                 behind the scenes, which led me to dive deep into programming and software development.
               </p>
               <p>
-                Over the past year, I've gained valuable experience through intensive training programs 
-                and real-world client projects. This combination has given me both theoretical knowledge 
+                Over the past year, I've gained valuable experience through intensive training programs
+                and real-world client projects. This combination has given me both theoretical knowledge
                 and practical skills in building scalable, efficient applications.
               </p>
               <p>
-                I specialize in full-stack development with a strong focus on modern frameworks 
-                and automation tools. My goal is to write clean, maintainable code that solves 
+                I specialize in full-stack development with a strong focus on modern frameworks
+                and automation tools. My goal is to write clean, maintainable code that solves
                 real problems and delivers value to users and businesses.
               </p>
             </div>
@@ -61,7 +63,7 @@ const About = () => {
 
           <div className="grid sm:grid-cols-2 gap-6">
             {highlights.map((highlight, index) => (
-              <Card key={index} className="glass-card hover:glow-effect transition-all duration-300">
+              <Card key={index} className="glass-card border-1 border-white border-opacity-40 hover:glow-effect transition-all duration-300 animate-on-scroll" style={{animationDelay: `${index * 0.1}s`}}>
                 <CardContent className="p-6 text-center">
                   <highlight.icon className="h-12 w-12 text-primary mx-auto mb-4" />
                   <h4 className="font-semibold mb-2">{highlight.title}</h4>
@@ -72,7 +74,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="glass-card rounded-xl p-8">
+        <div className="glass-card rounded-xl p-8 border-1 border-white border-opacity-40 animate-on-scroll" style={{animationDelay: '0.4s'}}>
           <h3 className="text-2xl font-semibold gradient-text mb-6 text-center">What Drives Me</h3>
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>

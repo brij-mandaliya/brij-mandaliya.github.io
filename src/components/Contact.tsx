@@ -6,8 +6,10 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Contact = () => {
+  const animationRef = useScrollAnimation();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
@@ -84,7 +86,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 bg-gradient-secondary">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6" ref={animationRef}>
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Get In <span className="gradient-text">Touch</span>
@@ -96,7 +98,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <Card className="glass-card">
+          <Card className="glass-card animate-on-scroll">
             <CardHeader>
               <CardTitle className="gradient-text">Send Message</CardTitle>
               <p className="text-muted-foreground">
@@ -177,7 +179,7 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             {/* Contact Details */}
-            <Card className="glass-card">
+            <Card className="glass-card animate-on-scroll" style={{animationDelay: '0.1s'}}>
               <CardHeader>
                 <CardTitle className="gradient-text">Contact Information</CardTitle>
               </CardHeader>
@@ -206,7 +208,7 @@ const Contact = () => {
             </Card>
 
             {/* Social Links */}
-            <Card className="glass-card">
+            <Card className="glass-card animate-on-scroll" style={{animationDelay: '0.2s'}}>
               <CardHeader>
                 <CardTitle className="gradient-text">Connect With Me</CardTitle>
               </CardHeader>
@@ -232,7 +234,7 @@ const Contact = () => {
             </Card>
 
             {/* Availability */}
-            <Card className="glass-card">
+            <Card className="glass-card animate-on-scroll" style={{animationDelay: '0.3s'}}>
               <CardContent className="p-6 text-center">
                 <h3 className="font-semibold gradient-text mb-2">Available for Work</h3>
                 <p className="text-muted-foreground text-sm">

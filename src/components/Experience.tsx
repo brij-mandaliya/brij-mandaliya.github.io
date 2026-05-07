@@ -1,8 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, MapPin, Code, Users } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Experience = () => {
+  const animationRef = useScrollAnimation();
   const experiences = [
     {
       type: 'Client Projects',
@@ -18,7 +20,7 @@ const Experience = () => {
         'Created automated tasks using Zapier for business process optimization',
         'Collaborated directly with clients to understand requirements and provide technical solutions'
       ],
-      technologies: ['Laravel', 'Python', 'Scrapy', 'Vue.js', 'PHP', 'JavaScript', 'AWS', 'Zapier'],
+      technologies: ['Laravel', 'Python', 'Scrapy', 'Vue.js', 'Nuxt.js', 'PHP', 'JavaScript', 'AWS', 'Zapier'],
       icon: Users
     },
     {
@@ -65,7 +67,7 @@ const Experience = () => {
 
   return (
     <section id="experience" className="py-20">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6" ref={animationRef}>
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             My <span className="gradient-text">Experience</span>
@@ -78,11 +80,11 @@ const Experience = () => {
         {/* Experience Timeline */}
         <div className="space-y-8 mb-16">
           {experiences.map((exp, index) => (
-            <Card key={index} className="glass-card hover:glow-effect transition-all duration-300">
+            <Card key={index} className="glass-card hover:glow-effect transition-all duration-300 animate-on-scroll" style={{animationDelay: `${index * 0.15}s`}}>
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div className="flex items-start space-x-4">
-                    <div className="bg-gradient-primary p-3 rounded-lg">
+                    <div className="bg-gradient-primary p-3 rounded-lg border-2">
                       <exp.icon className="h-6 w-6 text-white" />
                     </div>
                     <div>
@@ -137,7 +139,7 @@ const Experience = () => {
         </div>
 
         {/* Professional Skills */}
-        <div className="glass-card rounded-xl p-8">
+        <div className="glass-card rounded-xl p-8 animate-on-scroll" style={{animationDelay: '0.3s'}}>
           <h3 className="text-2xl font-semibold gradient-text mb-6 text-center">
             Professional Skills
           </h3>
@@ -153,11 +155,11 @@ const Experience = () => {
 
         {/* Summary */}
         <div className="mt-16 text-center">
-          <div className="glass-card rounded-xl p-8 max-w-3xl mx-auto">
+          <div className="glass-card rounded-xl p-8 max-w-3xl mx-auto animate-on-scroll" style={{animationDelay: '0.5s'}}>
             <h3 className="text-xl font-semibold gradient-text mb-4">Experience Summary</h3>
             <p className="text-muted-foreground text-lg">
-              My journey as a software engineer has been marked by continuous learning and practical application. 
-              Through intensive training and real client work, I've developed a strong foundation in full-stack 
+              My journey as a software engineer has been marked by continuous learning and practical application.
+              Through intensive training and real client work, I've developed a strong foundation in full-stack
               development while gaining valuable experience in project delivery and client communication.
             </p>
           </div>

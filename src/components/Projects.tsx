@@ -2,16 +2,18 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Github, ExternalLink } from 'lucide-react';
-import ultimateTicTacToe from '@/assets/ultimate-tictactoe.jpg';
-import ecommerceProject from '@/assets/ecommerce-project.jpg';
+import ultimateTicTacToe from '@/assets/ultimate-tictactoe.png';
+import ecommerceProject from '@/assets/ecommerce-project.png';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Projects = () => {
+  const animationRef = useScrollAnimation();
   const projects = [
     {
       title: 'Ultimate TicTacToe 9x9',
       description: 'An advanced implementation of the classic TicTacToe game with a twist - featuring a 3x3 grid where each cell contains another TicTacToe game. Built with modern frontend technologies for an engaging user experience.',
       image: ultimateTicTacToe,
-      technologies: ['Node.js', 'Nuxt.js', 'CSS', 'Bootstrap'],
+      technologies: ['Node.js', 'Nuxt.js', 'CSS', 'Bootstrap', 'Socket.io'],
       features: [
         'Interactive game logic with nested grids',
         'Responsive design for all devices',
@@ -39,7 +41,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20 bg-gradient-secondary">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6" ref={animationRef}>
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             My <span className="gradient-text">Projects</span>
@@ -51,16 +53,16 @@ const Projects = () => {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="glass-card hover:glow-effect transition-all duration-300 overflow-hidden">
+            <Card key={index} className="glass-card hover:glow-effect transition-all duration-300 overflow-hidden animate-on-scroll" style={{animationDelay: `${index * 0.2}s`}}>
               <div className="relative">
-                <img 
-                  src={project.image} 
+                <img
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               </div>
-              
+
               <CardHeader>
                 <CardTitle className="gradient-text">{project.title}</CardTitle>
                 <p className="text-muted-foreground">{project.description}</p>
@@ -117,13 +119,13 @@ const Projects = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <div className="glass-card rounded-xl p-8 max-w-2xl mx-auto">
+          <div className="glass-card rounded-xl p-8 max-w-2xl mx-auto animate-on-scroll" style={{animationDelay: '0.4s'}}>
             <h3 className="text-xl font-semibold gradient-text mb-4">More Projects Coming Soon</h3>
             <p className="text-muted-foreground mb-6">
-              I'm constantly working on new projects and improving my skills. 
+              I'm constantly working on new projects and improving my skills.
               Check back regularly for updates or follow my progress on GitHub.
             </p>
-            <Button asChild className="bg-gradient-primary hover:opacity-90">
+            <Button asChild className="bg-gradient-primary text-light border-2 hover:text-black hover:opacity-90">
               <a
                 href="https://github.com/brij-mandaliya?tab=repositories"
                 target="_blank"
